@@ -1,0 +1,21 @@
+# See versions list here: https://docs.docker.com/compose/compose-file/compose-file-v3/
+version: "3.8"
+services:
+
+  rust-example:
+    image: rust-example-multi-arch
+    container_name: rust-example
+    hostname: rust-example
+    ports:
+      - "8080:4000"
+    links:
+      - curl-loop:curl-loop
+    volumes:
+      - ../env:/env
+    environment:
+      - ENVROLE=dev
+
+  curl-loop:
+    image: curl-loop
+    container_name: curl-loop
+    hostname: curl-loop

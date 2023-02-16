@@ -1,0 +1,3 @@
+FROM curlimages/curl:latest
+# Make container to run forever once started
+CMD [ "tail", "-f", "/dev/null"  ]

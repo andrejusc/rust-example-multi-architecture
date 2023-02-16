@@ -1,0 +1,5 @@
+FROM scratch
+# Such copy here is only for Dev-like environments. For other Envs - should be mounted explicitly.
+COPY ../env /env
+COPY ../service/target/aarch64-unknown-linux-gnu/release/service /service
+CMD [ "/service" ]
